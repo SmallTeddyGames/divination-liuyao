@@ -10,10 +10,6 @@ type GameStateType = 'init' | 'start' | 'pause' | 'win' | 'lose'
  * 游戏信息
  */
 type GameInfoType = {
-    // 游戏难度
-    difficulty: DifficultyType;
-    // 当前局此
-    rounds: number;
     // 游戏状态
     gameState: GameStateType;
     // 背景图片
