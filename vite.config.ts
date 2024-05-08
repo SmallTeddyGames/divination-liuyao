@@ -38,13 +38,6 @@ export default defineConfig({
                     '@/store': [
                         'useGlobalState'
                     ]
-                },
-                // i18n
-                {
-                    'vue-i18n': [
-                        'useI18n',
-                        'createI18n'
-                    ]
                 }
             ]
         }),

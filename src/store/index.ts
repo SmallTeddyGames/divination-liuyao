@@ -4,8 +4,6 @@ export const useGlobalState: () => Ref<GameInfoType> = createGlobalState(
     () => useStorage('global-state', {
         // 游戏难度
         difficulty: 'middle',
-        // 语言设置
-        language: 'cn',
         // 当前局此
         rounds: 0,
         // 游戏状态

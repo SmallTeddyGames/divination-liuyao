@@ -12,8 +12,6 @@ type GameStateType = 'init' | 'start' | 'pause' | 'win' | 'lose'
 type GameInfoType = {
     // 游戏难度
     difficulty: DifficultyType;
-    // 语言设置
-    language: 'cn' | 'en';
     // 当前局此
     rounds: number;
     // 游戏状态
