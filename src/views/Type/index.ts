@@ -1,8 +1,4 @@
 /**
- * 游戏难度
- */
-type DifficultyType = 'easy' | 'middle' | 'hard'
-/**
  * 游戏状态
  */
 type GameStateType = 'init' | 'start' | 'pause' | 'win' | 'lose'
@@ -19,7 +15,6 @@ type GameInfoType = {
 }
 
 export type {
-    DifficultyType,
     GameStateType,
     GameInfoType
 }
