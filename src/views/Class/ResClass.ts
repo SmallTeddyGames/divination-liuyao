@@ -12,10 +12,10 @@
  * enlighten：启示
  */
 class ResultClass {
-  '111111' = {
+  '999999' = {
     name: '乾卦',
     phase: '下乾上乾',
-    image: '111111.png',
+    image: '999999.png',
     moral: '上上卦',
     article: [
       { 
