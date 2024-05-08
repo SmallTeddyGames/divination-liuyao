@@ -17,11 +17,11 @@ import {
 export default defineConfig({
     //  自定义配置
     shortcuts: {
-        "border-base": "border-gray-200 dark:border-gray-500",
+        "border-base": "border-gray-500",
         "bg-active": "bg-gray:10",
         "flex-center": "flex items-center justify-center",
         "card-size": "w-120px h-164px",
-        "bg-mask": "bg-white-80 dark:bg-black-30",
+        "bg-mask": "bg-black-30",
     },
     //  额外选项
     rules: [
