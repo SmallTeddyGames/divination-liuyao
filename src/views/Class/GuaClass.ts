@@ -16,7 +16,7 @@ class BaseGuaClass {
 }
 
 // 乾
-export const qianGua = new BaseGuaClass({
+const qianGua = new BaseGuaClass({
   gua: '111',
   direction: '南',
   nature: '天',
@@ -30,7 +30,7 @@ export const qianGua = new BaseGuaClass({
 })
 
 // 兑
-export const duiGua = new BaseGuaClass({
+const duiGua = new BaseGuaClass({
   gua: '110',
   direction: '东南',
   nature: '泽',
@@ -44,7 +44,7 @@ export const duiGua = new BaseGuaClass({
 })
 
 // 离
-export const liGua = new BaseGuaClass({
+const liGua = new BaseGuaClass({
   gua: '101',
   direction: '东',
   nature: '火',
@@ -58,7 +58,7 @@ export const liGua = new BaseGuaClass({
 })
 
 // 震
-export const zhenGua = new BaseGuaClass({
+const zhenGua = new BaseGuaClass({
   gua: '100',
   direction: '东北',
   nature: '雷',
@@ -72,7 +72,7 @@ export const zhenGua = new BaseGuaClass({
 })
 
 // 巽
-export const xunGua = new BaseGuaClass({
+const xunGua = new BaseGuaClass({
   gua: '110',
   direction: '西南',
   nature: '风',
@@ -86,7 +86,7 @@ export const xunGua = new BaseGuaClass({
 })
 
 // 坎
-export const kanGua = new BaseGuaClass({
+const kanGua = new BaseGuaClass({
   gua: '010',
   direction: '西',
   nature: '水',
@@ -100,7 +100,7 @@ export const kanGua = new BaseGuaClass({
 })
 
 // 艮
-export const genGua = new BaseGuaClass({
+const genGua = new BaseGuaClass({
   gua: '001',
   direction: '西北',
   nature: '山',
@@ -114,7 +114,7 @@ export const genGua = new BaseGuaClass({
 })
 
 // 坤
-export const kunGua = new BaseGuaClass({
+const kunGua = new BaseGuaClass({
   gua: '000',
   direction: '北',
   nature: '地',
@@ -126,3 +126,7 @@ export const kunGua = new BaseGuaClass({
   fairy: '仙姑',
   side: '土字旁',
 })
+
+export {
+  qianGua, duiGua, liGua, zhenGua, xunGua, kanGua, genGua, kunGua
+}
