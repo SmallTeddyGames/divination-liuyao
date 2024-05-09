@@ -17,7 +17,7 @@ class BaseGuaClass {
 
 // 乾
 const qianGua = new BaseGuaClass({
-  gua: '111',
+  gua: '999',
   direction: '南',
   nature: '天',
   body: '头',
