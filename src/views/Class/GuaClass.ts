@@ -8,9 +8,8 @@ class BaseGuaClass {
     return this.name.split('').reduce((bianGua = '', yao: YaoType) => {
       switch(yao) {
         case '6': bianGua += 9; break;
-        case '7': bianGua += 7; break;
-        case '8': bianGua += 8; break;
         case '9': bianGua += 6; break;
+        default: bianGua += yao;
       }
       return bianGua;
     }, '');
