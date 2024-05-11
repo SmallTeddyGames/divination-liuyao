@@ -1,132 +1,66 @@
+type YaoType = '6' | '8' | '7' | '9';
+
 class BaseGuaClass {
-  gua = '' // 卦
-  direction = '' // 方位
-  nature = '' // 自然
-  body = ''   // 人体
-  animal = '' // 动物
-  family = '' // 家人
-  sound = ''  // 声音
-  building = '' // 建筑
-  fairy = ''   // 八仙
-  side = ''    // 偏旁
+  name = '' // 卦
+  layout = '' // 卦布局
+
+  getBianGua() {
+    return this.name.split('').reduce((bianGua = '', yao: YaoType) => {
+      switch(yao) {
+        case '6': bianGua += 9; break;
+        case '7': bianGua += 7; break;
+        case '8': bianGua += 8; break;
+        case '9': bianGua += 6; break;
+      }
+      return bianGua;
+    }, '');
+  }
+
+  getCuoGua() {
+    return this.name.split('').reduce((cuoGua = '', yao: YaoType) => {
+      switch(yao) {
+        case '6': cuoGua += 9; break;
+        case '7': cuoGua += 8; break;
+        case '8': cuoGua += 7; break;
+        case '9': cuoGua += 6; break;
+      }
+      return cuoGua;
+    }, '');
+  }
+
+  getZongGua() {
+    return this.name.split('').reverse().join('');
+  }
+
+  getHuGua() {
+    return this.name.slice(1, 4) + this.name.slice(2, 5);
+  }
 
   constructor(data: Partial<BaseGuaClass> = {}) {
     Object.assign(this, data);
   }
 }
 
-// 乾
-const qianGua = new BaseGuaClass({
-  gua: '999',
-  direction: '南',
-  nature: '天',
-  body: '头',
-  animal: '马',
-  family: '父亲',
-  sound: '金属声',
-  building: '京都',
-  fairy: '吕洞宾',
-  side: '金字旁',
-})
+const AllGua = {
+  '999999': new BaseGuaClass({
+    name: '乾卦',
+    layout: '下乾上乾'
+  }),
+  '666666': new BaseGuaClass({
+    name: '坤卦',
+    layout: '下坤上坤'
+  }),
+  '669696': new BaseGuaClass({
+    name: '屯卦',
+    layout: '下震上坎'
+  }),
+  '999966': new BaseGuaClass({
+    name: '蒙卦',
+    layout: '下坎上艮'
+  }),
+}
 
-// 兑
-const duiGua = new BaseGuaClass({
-  gua: '110',
-  direction: '东南',
-  nature: '泽',
-  body: '口',
-  animal: '羊',
-  family: '少女',
-  sound: '说话吼叫声',
-  building: '井',
-  fairy: '张果老',
-  side: '口字旁',
-})
-
-// 离
-const liGua = new BaseGuaClass({
-  gua: '101',
-  direction: '东',
-  nature: '火',
-  body: '眼',
-  animal: '凤',
-  family: '中女',
-  sound: '燃烧声',
-  building: '炉灶',
-  fairy: '汉钟离',
-  side: '火字旁',
-})
-
-// 震
-const zhenGua = new BaseGuaClass({
-  gua: '100',
-  direction: '东北',
-  nature: '雷',
-  body: '足',
-  animal: '龙',
-  family: '长男',
-  sound: '擂鼓声',
-  building: '门市',
-  fairy: '曹国舅',
-  side: '木字旁',
-})
-
-// 巽
-const xunGua = new BaseGuaClass({
-  gua: '110',
-  direction: '西南',
-  nature: '风',
-  body: '腿',
-  animal: '鸡',
-  family: '长女',
-  sound: '风声',
-  building: '园艺',
-  fairy: '韩湘子',
-  side: '草字头',
-})
-
-// 坎
-const kanGua = new BaseGuaClass({
-  gua: '010',
-  direction: '西',
-  nature: '水',
-  body: '耳',
-  animal: '鲤鱼',
-  family: '中男',
-  sound: '水流声',
-  building: '厕所',
-  fairy: '铁拐李',
-  side: '三点水',
-})
-
-// 艮
-const genGua = new BaseGuaClass({
-  gua: '001',
-  direction: '西北',
-  nature: '山',
-  body: '手',
-  animal: '狗',
-  family: '少男',
-  sound: '山石声',
-  building: '门墙',
-  fairy: '蓝采和',
-  side: '山字旁',
-})
-
-// 坤
-const kunGua = new BaseGuaClass({
-  gua: '000',
-  direction: '北',
-  nature: '地',
-  body: '腹',
-  animal: '牛',
-  family: '母亲',
-  sound: '动土声',
-  building: '城市',
-  fairy: '仙姑',
-  side: '土字旁',
-})
 
 export {
-  qianGua, duiGua, liGua, zhenGua, xunGua, kanGua, genGua, kunGua
+  AllGua
 }
