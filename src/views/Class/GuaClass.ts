@@ -43,20 +43,24 @@ class BaseGuaClass {
 const AllGua = {
   '999999': new BaseGuaClass({
     name: '乾卦',
-    layout: '下乾上乾'
+    layout: '乾上乾下'
   }),
   '666666': new BaseGuaClass({
     name: '坤卦',
-    layout: '下坤上坤'
+    layout: '坤上坤下'
   }),
-  '669696': new BaseGuaClass({
+  '966696': new BaseGuaClass({
     name: '屯卦',
-    layout: '下震上坎'
+    layout: '坎上震下'
   }),
-  '999966': new BaseGuaClass({
+  '696669': new BaseGuaClass({
     name: '蒙卦',
-    layout: '下坎上艮'
+    layout: '艮上坎下'
   }),
+  '999696': {
+    name: '需卦',
+    layout: '坎上乾下'
+  }
 }
 
 
