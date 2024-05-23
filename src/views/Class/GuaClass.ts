@@ -1,8 +1,34 @@
 type YaoType = '6' | '8' | '7' | '9';
+type CoinType = 2 | 3
+
+class CoinClass {
+  firstCoin: CoinType = 2 // 第一个硬币
+  secondCoin: CoinType = 2 // 第二个硬币
+  thirdCoin: CoinType = 2 // 第三个硬币
+
+  getYao() {
+    return String(this.firstCoin + this.secondCoin + this.thirdCoin);
+  }
+
+  constructor(data: Partial<CoinClass> = {}) {
+    Object.assign(this, data);
+  }
+}
 
 class BaseGuaClass {
+  firstYao = '' // 第一个爻
+  secondYao = '' // 第二个爻
+  thirdYao = '' // 第三个爻
+  fourYao = '' // 第四个爻
+  fiveYao = '' // 第五个爻
+  sixYao = '' // 第六个爻
   name = '' // 卦
   layout = '' // 卦布局
+
+  geyBaseGua() {
+    this.name = `${this.firstYao}${this.secondYao}${this.thirdYao}${this.fourYao}${this.fiveYao}${this.sixYao}`;
+    return this.name;
+  }
 
   getBianGua() {
     return this.name.split('').reduce((bianGua = '', yao: YaoType) => {
@@ -40,30 +66,7 @@ class BaseGuaClass {
   }
 }
 
-const AllGua = {
-  '999999': new BaseGuaClass({
-    name: '乾卦',
-    layout: '乾上乾下'
-  }),
-  '666666': new BaseGuaClass({
-    name: '坤卦',
-    layout: '坤上坤下'
-  }),
-  '966696': new BaseGuaClass({
-    name: '屯卦',
-    layout: '坎上震下'
-  }),
-  '696669': new BaseGuaClass({
-    name: '蒙卦',
-    layout: '艮上坎下'
-  }),
-  '999696': {
-    name: '需卦',
-    layout: '坎上乾下'
-  }
-}
-
-
 export {
-  AllGua
+  CoinClass,
+  BaseGuaClass
 }

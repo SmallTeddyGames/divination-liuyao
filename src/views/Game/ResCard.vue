@@ -1,21 +1,22 @@
 <template>
   <div>
-    <h3 text-2xl font-bold>卦名：{{ resInfo.name }}</h3>
-    <h3 text-xl font-bold>卦象：{{ resInfo.phase }}</h3>
-    <img :src="`${getAssetsFile(resInfo.image)}`" :alt="resInfo.name" />
-    <h3 text-xl font-bold>卦名：{{ resInfo.moral }}</h3>
+    {{ baseGua }}
   </div>
 </template>
 
 <script lang='ts' setup>
-import { qianGua, duiGua, liGua, zhenGua, xunGua, kanGua, genGua, kunGua } from '../Class/GuaClass'
+import { CoinClass, BaseGuaClass } from '../Class/GuaClass'
 import { ResultClass } from '../Class/ResClass'
 import { getAssetsFile } from '@/utils'
 
-const resGua = ref(qianGua.gua + qianGua.gua)
-const resInfo = ref(new ResultClass()[resGua.value])
+const firstYao = new CoinClass({ firstCoin: 3, secondCoin: 3, thirdCoin: 3 }).getYao()
+const secondYao = new CoinClass({ firstCoin: 3, secondCoin: 3, thirdCoin: 3 }).getYao()
+const thirdYao = new CoinClass({ firstCoin: 3, secondCoin: 3, thirdCoin: 3 }).getYao()
+const fourYao = new CoinClass({ firstCoin: 3, secondCoin: 3, thirdCoin: 3 }).getYao()
+const fiveYao = new CoinClass({ firstCoin: 3, secondCoin: 3, thirdCoin: 3 }).getYao()
+const sixYao = new CoinClass({ firstCoin: 3, secondCoin: 3, thirdCoin: 3 }).getYao()
 
-console.log(resInfo.value)
+const baseGua = new BaseGuaClass({ firstYao, secondYao, thirdYao, fourYao, fiveYao, sixYao }).geyBaseGua()
 </script>
 
 <style scoped>
