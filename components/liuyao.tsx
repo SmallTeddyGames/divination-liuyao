@@ -4,8 +4,8 @@ import { useState } from 'react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
-const COIN_YANG = "https://github.com/SmallTeddyGames/divination-liuyao/blob/main/public/coin-yang.png"
-const COIN_YIN = "https://github.com/SmallTeddyGames/divination-liuyao/blob/main/public/coin-yin.png"
+const COIN_YANG = "https://smallteddygames.github.io/divination-liuyao/coin-yang.png"
+const COIN_YIN = "https://smallteddygames.github.io/divination-liuyao/coin-yin.png"
 
 const generateRandomYao = () => {
   return Math.random() < 0.5 ? 'yin' : 'yang';
