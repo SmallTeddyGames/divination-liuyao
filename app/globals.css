@@ -76,3 +76,18 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .animate-flip {
+    animation: flip 0.5s infinite;
+  }
+  
+  @keyframes flip {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(360deg);
+    }
+  }
+}

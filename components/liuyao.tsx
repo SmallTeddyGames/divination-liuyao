@@ -1,18 +1,15 @@
 'use client'
 
 import { useState } from 'react'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+
+const COIN_YANG = '/coin-yang.png'
+const COIN_YIN = '/coin-yin.png'
 
 const generateRandomYao = () => {
   return Math.random() < 0.5 ? 'yin' : 'yang';
 }
-
-const yaoOptions = [
-  { value: 'yang', label: '阳' },
-  { value: 'yin', label: '阴' },
-]
 
 const baguaInfo = {
   '乾': { 自然: '天', 人体: '头', 动物: '马', 家人: '父亲', 声音: '金属声', 建筑: '京都', 八仙: '吕洞宾', 偏旁: '金字旁' },
@@ -55,16 +52,28 @@ const yaoFamilyMembers = [
 export function Liuyao() {
   const [yao, setYao] = useState(['yang', 'yang', 'yang', 'yang', 'yang', 'yang'])
   const [result, setResult] = useState('')
+  const [isFlipping, setIsFlipping] = useState(false)
+  const [flipStates, setFlipStates] = useState(Array(6).fill(false))
 
   const generateRandomHexagram = () => {
-    const newYao = Array(6).fill(null).map(() => generateRandomYao());
-    setYao(newYao);
+    setIsFlipping(true)
+    setFlipStates(Array(6).fill(true))
+    
+    // Start the coin flip animation
+    setTimeout(() => {
+      const newYao = Array(6).fill(null).map(() => generateRandomYao())
+      setYao(newYao)
+      setFlipStates(Array(6).fill(false))
+      setIsFlipping(false)
+    }, 500)
   }
 
-  const handleYaoChange = (index: number, value: string) => {
-    const newYao = [...yao]
-    newYao[index] = value
-    setYao(newYao)
+  const handleYaoChange = (index: number) => {
+    if (!isFlipping) {
+      const newYao = [...yao]
+      newYao[index] = newYao[index] === 'yang' ? 'yin' : 'yang'
+      setYao(newYao)
+    }
   }
 
   const interpretYao = () => {
@@ -104,22 +113,36 @@ export function Liuyao() {
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
-          {yao.map((y, index) => (
-            <Select key={index} value={y} onValueChange={(value) => handleYaoChange(index, value)}>
-              <SelectTrigger>
-                <SelectValue placeholder={`第${index + 1}爻`} />
-              </SelectTrigger>
-              <SelectContent>
-                {yaoOptions.map((option) => (
-                  <SelectItem key={option.value} value={option.value}>
-                    {option.label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          ))}
-          <Button onClick={generateRandomHexagram} className="w-full mb-4">随机生成卦象</Button>
-          <Button onClick={interpretYao} className="w-full">解卦</Button>
+          <div className="grid grid-cols-6 gap-4 mb-4">
+            {yao.map((y, index) => (
+              <button
+                key={index}
+                onClick={() => handleYaoChange(index)}
+                className="focus:outline-none w-full aspect-square relative"
+                disabled={isFlipping}
+              >
+                <div
+                  className={`w-full h-full relative transition-transform duration-[500ms] preserve-3d ${
+                    flipStates[index] ? 'animate-flip' : ''
+                  }`}
+                >
+                  <img
+                    src={y === 'yang' ? COIN_YANG : COIN_YIN}
+                    alt={y === 'yang' ? '阳' : '阴'}
+                    className="w-full h-full object-contain rounded-full"
+                  />
+                </div>
+              </button>
+            ))}
+          </div>
+          <div className="flex gap-4">
+            <Button onClick={generateRandomHexagram} className="flex-1" disabled={isFlipping}>
+              随机生成卦象
+            </Button>
+            <Button onClick={interpretYao} className="flex-1" disabled={isFlipping}>
+              解卦
+            </Button>
+          </div>
         </div>
         {result && (
           <div className="mt-6 p-4 bg-muted rounded-md">
