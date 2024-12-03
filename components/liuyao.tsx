@@ -100,11 +100,12 @@ export function Liuyao() {
     let interpretation = `下卦为${lowerGua}，上卦为${upperGua}。\n\n`
 
     if (hexagramInfo[fullHexagram]) {
-      const { no, name, pinyin, meaning, description } = hexagramInfo[fullHexagram]
+      const { no, name, pinyin, qian, meaning, description } = hexagramInfo[fullHexagram]
       interpretation += `第${no}卦\n`
       interpretation += `卦名：${name}\n`
       interpretation += `拼音：${pinyin}\n`
-      interpretation += `卦意：${meaning}\n`
+      interpretation += `吉凶：${qian}\n`
+      interpretation += `象曰：${meaning}\n`
       interpretation += `解释：${description}\n\n`
     } else {
       interpretation += `未找到对应的卦象解释（二进制码：${fullHexagram}）\n\n`
