@@ -120,22 +120,22 @@ export function Liuyao() {
       interpretation += `卦名：${name}【${pinyin}】\n\n`
       interpretation += `原文：${original}\n\n`
       interpretation += `吉凶：${qian}\n\n`
-      interpretation += `象曰：${meaning}\n\n`
-      interpretation += `解释：${description}\n\n`
+      // interpretation += `卦象：${description}\n\n`
+      interpretation += `解释：${meaning}\n\n`
     } else {
       interpretation += `未找到对应的卦象解释（二进制码：${fullHexagram}）\n\n`
     }
 
     interpretation += '爻位解释：\n\n'
     yao.forEach((y, index) => {
-      interpretation += `第${index + 1}爻（${y.name}）：\n\n`
-      interpretation += `  人体：${yaoBodyParts[index]}\n\n`
-      interpretation += `  风水：${yaoFengShui[index]}\n\n`
-      interpretation += `  家庭成员：${yaoFamilyMembers[index]}\n\n`
+      interpretation += `第${index + 1}爻（${y.name}）：\n`
+      interpretation += `  人体：${yaoBodyParts[index]}\n`
+      interpretation += `  风水：${yaoFengShui[index]}\n`
+      interpretation += `  家庭成员：${yaoFamilyMembers[index]}\n`
       if (y.changing) {
-        interpretation += `  ⚠️ 此爻为变爻\n\n`
+        interpretation += `  ⚠️ 此爻为变爻\n`
       }
-      interpretation += '\n\n'
+      interpretation += '\n'
     })
 
     interpretation += '卦象解释：\n\n'
