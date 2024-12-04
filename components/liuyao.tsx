@@ -125,21 +125,21 @@ export function Liuyao() {
       interpretation += `未找到对应的卦象解释（二进制码：${fullHexagram}）\n\n`
     }
 
-    interpretation += '爻位解释：\n'
+    interpretation += '爻位解释：\n\n'
     yao.forEach((y, index) => {
-      interpretation += `第${index + 1}爻（${y.name}）：\n`
-      interpretation += `  人体：${yaoBodyParts[index]}\n`
-      interpretation += `  风水：${yaoFengShui[index]}\n`
-      interpretation += `  家庭成员：${yaoFamilyMembers[index]}\n`
+      interpretation += `第${index + 1}爻（${y.name}）：\n\n`
+      interpretation += `  人体：${yaoBodyParts[index]}\n\n`
+      interpretation += `  风水：${yaoFengShui[index]}\n\n`
+      interpretation += `  家庭成员：${yaoFamilyMembers[index]}\n\n`
       if (y.changing) {
-        interpretation += `  ⚠️ 此爻为变爻\n`
+        interpretation += `  ⚠️ 此爻为变爻\n\n`
       }
-      interpretation += '\n'
+      interpretation += '\n\n'
     })
 
-    interpretation += '卦象解释：\n'
-    interpretation += `下卦${lowerGua}：${Object.entries(baguaInfo[lowerGua as keyof typeof baguaInfo]).map(([key, value]) => `${key}为${value}`).join('，')}\n`
-    interpretation += `上卦${upperGua}：${Object.entries(baguaInfo[upperGua as keyof typeof baguaInfo]).map(([key, value]) => `${key}为${value}`).join('，')}\n`
+    interpretation += '卦象解释：\n\n'
+    interpretation += `下卦${lowerGua}：${Object.entries(baguaInfo[lowerGua as keyof typeof baguaInfo]).map(([key, value]) => `${key}为${value}`).join('，')}\n\n`
+    interpretation += `上卦${upperGua}：${Object.entries(baguaInfo[upperGua as keyof typeof baguaInfo]).map(([key, value]) => `${key}为${value}`).join('，')}\n\n`
 
     setResult(interpretation)
   }
