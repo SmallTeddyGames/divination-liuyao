@@ -12,10 +12,11 @@ export type BaGuaInfoType = {
 }
 
 export type HexagramInfoType = {
-  no: number
-  name: string
-  qian: '上上卦' | '中上卦' | '上卦' | '中中卦' | '中下卦' | '下下卦'
-  meaning: string
-  description: string
+  no: number // 卦象编号
+  name: string // 卦象名称
+  qian: '上上卦' | '中上卦' | '上卦' | '中中卦' | '中下卦' | '下下卦' // 卦象吉凶
+  original?: string // 卦象原文
+  meaning: string // 卦象含义
+  description: string // 卦象解释
   pinyin: string
 }
