@@ -1,4 +1,6 @@
-export const hexagramInfo: { [key: string]: { no: number, name: string, qian: string, meaning: string, description: string, pinyin: string } } = {
+import { HexagramInfoType } from "@types"
+
+export const hexagramInfo: { [key: string]: HexagramInfoType } = {
   '111111': {
     no: 1,
     name: '上乾下乾 乾为天（乾卦）自强不息',
