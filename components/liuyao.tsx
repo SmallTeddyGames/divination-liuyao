@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { baguaInfo } from '@/lib/constants/bagua'
 import { hexagramInfo } from '@/lib/constants/hexagram'
 import { yaoBodyParts, yaoFengShui, yaoFamilyMembers } from '@/lib/constants/yao'
@@ -234,7 +234,7 @@ export function Liuyao() {
             ‌六爻卜卦‌是一种起源于周朝时期的占卜方法，主要基于易经的原理。六爻卜卦通过掷铜钱六次来形成卦象，每次掷出的结果（正面或反面）决定了一个爻是阳爻（正面）还是阴爻（反面）。六个爻组合在一起形成一个完整的卦象，称为六爻卦‌。<br />
           </div>
           <div className="space-y-4">
-            {/* 显示投掷结果历史 */}
+            {/* 显示投掷结果 */}
             <div className="space-y-2">
               {throwResults.map((result, index) => (
                 <div key={index} className="flex items-center space-x-4 p-2 bg-gray-100 rounded">
@@ -245,18 +245,18 @@ export function Liuyao() {
                         key={coinIndex}
                         src={isYang ? COIN_YANG : COIN_YIN}
                         alt={isYang ? '正面' : '反面'}
-                        className="w-6 h-6"
+                        className="flex-1 h-6"
                       />
                     ))}
                   </div>
                   <span className="text-gray-500">
-                    <img src={RIGHT_ALLOW} alt="右" className="w-6 h-6" />
+                    <img src={RIGHT_ALLOW} alt="右" className="w-4 h-4" />
                   </span>
                   <span className="text-gray-600">
                     {result.coins.map(isYang => isYang ? '正' : '反').join('')}
                   </span>
                   <span className="text-gray-500">
-                    <img src={RIGHT_ALLOW} alt="右" className="w-6 h-6" />
+                    <img src={RIGHT_ALLOW} alt="右" className="w-4 h-4" />
                   </span>
                   <span className="font-medium">{result.yao.name}</span>
                 </div>
