@@ -256,8 +256,8 @@ export function Liuyao() {
       interpretation += `吉凶：${qian}\n\n`
       interpretation += `解释：${meaning}\n\n`
 
-      // 针对用户问题的 AI 分析
-      setAiResult(questionText ? buildAiAnswer(questionText, hexagramInfo[fullHexagram]) : '')
+      // 针对用户问题的 AI 分析（传入卦象与变爻信息）
+      setAiResult(questionText ? buildAiAnswer(questionText, hexagramInfo[fullHexagram], yaoArr) : '')
     } else {
       interpretation += `未找到对应的卦象解释（二进制码：${fullHexagram}）\n\n`
       setAiResult('')
